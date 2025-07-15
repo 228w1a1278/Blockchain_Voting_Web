@@ -1,0 +1,194 @@
+/* App container with background image */
+.App {
+  background-image: url('./1.jpg'); /* Replace with your image filename */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Login container with semi-transparent overlay */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-message {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.login-button:hover {
+  background-color: #0069d9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Connected container with semi-transparent overlay */
+.connected-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  /* background-color: rgba(241, 241, 241, 0.9); Semi-transparent background */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  border-radius: 15px;
+  /* margin: 20px; */
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.connected-header {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.connected-account {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.connected-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.connected-button:hover {
+  background-color: #0069d9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.connected-contract-address {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Table styling with background */
+.candidates-table {
+  border-collapse: collapse;
+  width: 320%;
+  text-align: center;
+  background-color: rgba(10, 121, 233, 0.95);
+  border-radius: 8px;
+  margin-left: -160px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.candidates-table th, 
+.candidates-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #154de6;
+  color: #333;
+}
+
+.candidates-table th {
+  background-color: rgba(160, 176, 183, 0.95);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.candidates-table tr:hover {
+  background-color: rgba(240, 240, 240, 0.8);
+}
+
+/* Input styling */
+input[type=number] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+input[type=number]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Finished container styling (add this for consistency) */
+.finished-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(241, 241, 241, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .login-container,
+  .connected-container,
+  .finished-container {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .candidates-table {
+    width: 90%;
+  }
+  
+  .welcome-message,
+  .connected-header {
+    font-size: 1.5rem;
+  }
+  
+  .connected-account {
+    font-size: 1rem;
+  }
+}
