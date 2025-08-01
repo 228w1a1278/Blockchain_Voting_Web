@@ -1,22 +1,24 @@
-/* App container with background image */
 .App {
-  background-image: url('./1.jpg'); /* Replace with your image filename */
+  /* background-image: url('./1.jpg'); */
+  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+  width: 100%; 
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 40%, #6dd5ed 100%);
+  min-height: 100vh;
   width: 100%;
 }
 
-/* Login container with semi-transparent overlay */
 .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  backdrop-filter: blur(10px); 
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
@@ -47,7 +49,6 @@
   box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
 }
 
-/* Connected container with semi-transparent overlay */
 .connected-container {
   display: flex;
   flex-direction: column;
@@ -56,7 +57,7 @@
   min-height: 100vh;
   width: 100%;
   /* background-color: rgba(241, 241, 241, 0.9); Semi-transparent background */
-  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  backdrop-filter: blur(10px); 
   border-radius: 15px;
   /* margin: 20px; */
   padding: 30px;
@@ -105,12 +106,12 @@
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* Table styling with background */
 .candidates-table {
   border-collapse: collapse;
   width: 320%;
   text-align: center;
-  background-color: rgba(10, 121, 233, 0.95);
+  /* background-color: rgba(10, 121, 233, 0.95); */
+  background-color: rgba(230, 243, 255, 0.96);
   border-radius: 8px;
   margin-left: -160px;
   overflow: hidden;
@@ -156,7 +157,6 @@ input[type=number]:focus {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
-/* Finished container styling (add this for consistency) */
 .finished-container {
   display: flex;
   flex-direction: column;
@@ -170,7 +170,6 @@ input[type=number]:focus {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .login-container,
   .connected-container,

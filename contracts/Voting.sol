@@ -8,26 +8,26 @@ contract Voting {
     }
 
     Candidate[] public candidates;
-    address owner;
+    address public owner;
     mapping(address => bool) public voters;
 
     uint256 public votingStart;
     uint256 public votingEnd;
 
-constructor(string[] memory _candidateNames, uint256 _durationInMinutes) {
-    for (uint256 i = 0; i < _candidateNames.length; i++) {
-        candidates.push(Candidate({
-            name: _candidateNames[i],
-            voteCount: 0
-        }));
+    constructor(string[] memory _candidateNames, uint256 _durationInMinutes) {
+        for (uint256 i = 0; i < _candidateNames.length; i++) {
+            candidates.push(Candidate({
+                name: _candidateNames[i],
+                voteCount: 0
+            }));
+        }
+        owner = msg.sender;
+        votingStart = block.timestamp;
+        votingEnd = block.timestamp + (_durationInMinutes * 1 minutes);
     }
-    owner = msg.sender;
-    votingStart = block.timestamp;
-    votingEnd = block.timestamp + (_durationInMinutes * 1 minutes);
-}
 
     modifier onlyOwner {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Only owner can call this function");
         _;
     }
 
@@ -41,6 +41,7 @@ constructor(string[] memory _candidateNames, uint256 _durationInMinutes) {
     function vote(uint256 _candidateIndex) public {
         require(!voters[msg.sender], "You have already voted.");
         require(_candidateIndex < candidates.length, "Invalid candidate index.");
+        require(getVotingStatus(), "Voting is not active.");
 
         candidates[_candidateIndex].voteCount++;
         voters[msg.sender] = true;
@@ -58,7 +59,29 @@ constructor(string[] memory _candidateNames, uint256 _durationInMinutes) {
         require(block.timestamp >= votingStart, "Voting has not started yet.");
         if (block.timestamp >= votingEnd) {
             return 0;
-    }
+        }
         return votingEnd - block.timestamp;
+    }
+
+    // New restart function
+    function restartVoting(uint256 _durationInMinutes) public onlyOwner {
+        votingStart = block.timestamp;
+        votingEnd = block.timestamp + (_durationInMinutes * 1 minutes);
+        
+        // Reset all vote counts
+        for (uint256 i = 0; i < candidates.length; i++) {
+            candidates[i].voteCount = 0;
+        }
+    }
+
+    // New extend function
+    function extendVoting(uint256 _additionalMinutes) public onlyOwner {
+        require(getVotingStatus() || block.timestamp < votingEnd + 1 hours, "Cannot extend voting");
+        votingEnd = votingEnd + (_additionalMinutes * 1 minutes);
+    }
+
+    // Get owner address
+    function getOwner() public view returns (address) {
+        return owner;
     }
 }
